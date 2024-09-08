@@ -68,7 +68,8 @@ case ${1} in
     mysql)
       case ${2} in
           login)
-              mysql -u root -ppassword -h 127.0.0.1
+            # 自身の環境ではmysqlのrootユーザーにパスワードをつけていないため、一旦コマンドを変更してログインできるようにする
+              mysql -u root -h 127.0.0.1
           ;;
           export)
               mysqldump --skip-column-statistics -u root -h 127.0.0.1 -A > ${3}
